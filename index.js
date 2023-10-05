@@ -86,7 +86,7 @@ async function recheckOrders(productId) {
         }, productIds: [productId], limit: 10
     })
 
-    if (+orders[0]?.postBalances?.base?.amount !== 0) {
+    if (+orders[0]?.postBalances?.base?.amount !== 0 && orders.length > 0) {
         console.log(`Need to force close`)
         let price = await vertexClient.perp.getPerpPrices({ productId })
         let priceFormatted = (Number(price.indexPrice).toFixed(0))
