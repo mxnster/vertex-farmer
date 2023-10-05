@@ -5,7 +5,7 @@ This script allows you to earn <b>$VRTX</b> on <b>[vertexprotocol](https://app.v
 ## Requeremets
 <b>To run this bot your IP must not be in a restricted territory </b>
 
-Top up your balance with <b>USDC in Arbitrum network</b> on <b>[vertexprotocol](https://app.vertexprotocol.com?referral=WW9z9H6D6q)</b>
+Top up your balance with <b>USDC.e in Arbitrum network</b> on <b>[vertexprotocol](https://app.vertexprotocol.com?referral=WW9z9H6D6q)</b>
 
 
 ## Setup bot
