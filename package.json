@@ -1,0 +1,20 @@
+{
+  "name": "vertex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "keywords": ["vertex", "bot", "rewards"],
+  "author": "@cryptolbs",
+  "license": "ISC",
+  "dependencies": {
+    "@vertex-protocol/client": "^0.5.1",
+    "@vertex-protocol/contracts": "^0.5.1",
+    "@vertex-protocol/engine-client": "^0.5.1",
+    "@vertex-protocol/indexer-client": "^0.5.1",
+    "@vertex-protocol/trigger-client": "^0.5.1",
+    "@vertex-protocol/utils": "^0.5.1",
+    "bignumber.js": "^9.1.2",
+    "ethers": "^6.7.1"
+  }
+}
