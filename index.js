@@ -86,8 +86,8 @@ async function recheckOrders(productId) {
         }, productIds: [productId], limit: 10
     })
 
-    if (+orders[0].postBalances.base.amount !== 0) {
-        console.log(`Need to close`)
+    if (+orders[0]?.postBalances?.base?.amount !== 0 && orders.length > 0) {
+        console.log(`Need to force close`)
         let price = await vertexClient.perp.getPerpPrices({ productId })
         let priceFormatted = (Number(price.indexPrice).toFixed(0))
         let isClosed = await placeOrder(productId, -orders[0].postBalances.base.amount / 10 ** products[productId].decimals, priceFormatted, false)
@@ -96,6 +96,7 @@ async function recheckOrders(productId) {
             await timeout(10000)
             return await recheckOrders(productId)
         }
+        await timeout(5000)
     }
 }
 
@@ -129,8 +130,6 @@ async function openClosePosition() {
             console.log(`Close: ${isClosed.status}`)
         }
     } else console.log(`Amount is lower than minSize`)
-    
-    await recheckOrders(productId)
 }
 
 
@@ -149,5 +148,7 @@ async function openClosePosition() {
         console.log(`Balance change: ${symbol}${(balanceAfter - balance).toFixed(2)}$`)
         console.log('-'.repeat(60));
         await timeout(config.pause.betweenTrades.from, config.pause.betweenTrades.to)
+		await recheckOrders(2)
+		await recheckOrders(4)
     }
 })()
